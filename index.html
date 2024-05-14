@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>:Before ::After, Unicode & Calc</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    :root{
+      --width: 100vw;
+    }
+
+    .main_div{
+      width: 100vw;
+      height: 100vh;
+      text-align: center;
+      padding-top: 100px;
+    }
+    h1{
+      color: #2980b9;
+      font-size: 5rem;
+    }
+    h1::after{
+      content: "\f005";
+      font-family: "Font Awesome 5 Free";
+      width: calc( var(--width) - 80vw);
+      height: 25px;
+      color: #1bac9c;
+      font-size: 3rem;
+      display: block;
+      margin: 0 auto;
+      border-bottom: 5px solid #1bac9c;
+
+    }
+    @media (max-width: 998px) {
+      h1{
+        font-size: 4rem;
+      }
+      h1::after{
+        width: calc( var(--width) - 70vw);
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="main_div">
+    <h1>Before After</h1>
+  </div>
+</body>
+</html>
